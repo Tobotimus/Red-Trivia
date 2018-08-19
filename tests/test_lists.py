@@ -1,10 +1,10 @@
-from redbot.ext import trivia
+import pathlib
 import yaml
 
 
 def test_trivia_lists():
     problem_lists = []
-    list_names = trivia.lists()
+    list_names = pathlib.Path("lists").glob("*yaml")
     for l in list_names:
         with l.open() as f:
             try:
